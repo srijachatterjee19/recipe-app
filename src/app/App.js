@@ -2,6 +2,8 @@ import React from 'react';
 
 import { AllRecipes } from '../features/allRecipes/AllRecipes.js';
 import { SearchTerm } from '../features/searchTerm/SearchTerm.js';
+import FavoriteRecipes from '../features/favoriteRecipes/FavoriteRecipes';
+
 
 export function App(props) {
   const {state, dispatch} = props;
@@ -19,7 +21,7 @@ export function App(props) {
       </section>
       <section>
         <h2>Favorite Recipes</h2>
-        
+        <FavoriteRecipes favoriteRecipes={visibleFavoriteRecipes} dispatch={dispatch}/>
       </section>
       <hr />
       <section>
