@@ -11,10 +11,10 @@ export const AllRecipes = (props) => {
   
   const { allRecipes, dispatch } = props;
 
-  const onFirstRender = () => {
+  
+  useEffect(() => {
     dispatch(loadData());
-  }
-  useEffect(onFirstRender, [])
+  }, [])
   
   const onAddRecipeHandler = (recipe) => {
     dispatch(addRecipe(recipe));
