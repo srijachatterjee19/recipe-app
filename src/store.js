@@ -1,5 +1,5 @@
 import allRecipesData from './data.js';
-import { configureStore } from 'redux';
+import { configureStore,combineReducers } from 'redux';
 
 
 /*
@@ -85,13 +85,12 @@ const favoriteRecipesReducer = (favoriteRecipes = initialFavoriteRecipes, action
 }
 
 
-const rootReducer = (state = {}, action) => {
-    const nextState = {
-      allRecipes: allRecipesReducer(state.allRecipes, action),
-      searchTerm: searchTermReducer(state.searchTerm, action),
-      favoriteRecipes: favoriteRecipesReducer(state.favoriteRecipes, action)
-    } 
-    return nextState;
-  }
-
+const reducers = {
+    allRecipes: allRecipesReducer,
+    favoriteRecipes: favoriteRecipesReducer,
+    searchTerm: searchTermReducer
+  };
+  
+  const rootReducer = combineReducers(reducers);
   export const store = configureStore(rootReducer);
+  
