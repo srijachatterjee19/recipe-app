@@ -10,12 +10,12 @@ const favoriteIconURL = 'https://static-assets.codecademy.com/Courses/Learn-Redu
 export const AllRecipes = (props) => {
   
   const { allRecipes, dispatch } = props;
-
-  const onFirstRender = () => {
-    dispatch(loadData());
-  }
   
   useEffect(() => {
+    const onFirstRender = () => {
+      dispatch(loadData());
+    };
+  
     onFirstRender();
   }, [dispatch]);
   
